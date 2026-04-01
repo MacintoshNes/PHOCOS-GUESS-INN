@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PHOCOS GUESS INN</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Favicons -->
+        <link href="img/favicon.ico" rel="icon">
+        <link href="img/apple-favicon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet"> 
+
+        <!-- Vendor CSS File -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="vendor/slick/slick.css" rel="stylesheet">
+        <link href="vendor/slick/slick-theme.css" rel="stylesheet">
+        <link href="vendor/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+        <!-- Main Stylesheet File -->
+        <link href="css/hover-style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+          :root {
+            --ghana-red: #CF0A2C;
+            --ghana-gold: #FCD116;
+            --ghana-green: hsl(156, 71%, 1%);
+            --ghana-black: #000000;
+            --ivory: #FFFFFF;
+            --cream: #F4EFE6;
+            --border: #D8CEBC;
+            --text-muted: #333333;
+            --wa-green: #25D366;
+          }
+
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+
+          body {
+            background: #FFFFFF;
+            font-family: 'DM Sans', sans-serif;
+            color: #000000;
+            min-height: 100vh;
+          }
+
+          .form-hero {
+            text-align: center;
+            margin-bottom: 36px;
+          }
+
+          .form-hero h2 {
+            font-family: 'EB Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--ghana-green);
+            letter-spacing: 0.01em;
+            line-height: 1.15;
+          }
+
+          .form-hero p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+          }
+
+          .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 18px 0 0;
+          }
+
+          .divider-ornament span {
+            height: 1px;
+            width: 80px;
+            background: linear-gradient(to right, transparent, var(--ghana-gold));
+          }
+
+          .divider-ornament span:last-child {
+            background: linear-gradient(to left, transparent, var(--ghana-gold));
+          }
+
+          .divider-ornament .star {
+            color: var(--ghana-gold);
+            font-size: 1.2rem;
+          }
+
+          .form-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+          }
+
+          .section-header {
+            background: var(--ghana-green);
+            color: #fff;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+
+          .section-header .s-icon {
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'EB Garamond', serif;
+            flex-shrink: 0;
+          }
+
+          .section-header h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+          }
+
+          .form-body {
+            padding: 28px 28px 32px;
+          }
+
+          .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 28px;
+          }
+
+          .form-grid.cols-1 { grid-template-columns: 1fr; }
+          .form-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+          .field-full { grid-column: 1 / -1; }
+
+          .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+          }
+
+          .field label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+
+          .field label .num {
+            background: var(--ghana-gold);
+            color: var(--ghana-black);
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+          }
+
+          .field input[type="text"],
+          .field input[type="date"],
+          .field input[type="tel"],
+          .field input[type="number"],
+          .field textarea,
+          .field select {
+            border: 1.5px solid var(--border);
+            border-radius: 2px;
+            padding: 10px 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            color: var(--ghana-black);
+            background: var(--ivory);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+          }
+
+          .field input:focus,
+          .field textarea:focus,
+          .field select:focus {
+            border-color: var(--ghana-green);
+            box-shadow: 0 0 0 3px rgba(0,107,63,0.10);
+            background: #fff;
+          }
+
+          .field textarea {
+            resize: vertical;
+            min-height: 70px;
+          }
+
+          .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            padding: 8px 12px;
+            background: var(--cream);
+            border: 1.5px solid var(--border);
+            border-radius: 2px;
+          }
+
+          .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--ghana-black);
+            padding: 4px 0;
+            transition: color 0.15s;
+            user-select: none;
+            white-space: nowrap;
+          }
+
+          .checkbox-item input[type="checkbox"],
+          .checkbox-item input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px; height: 16px;
+            border: 2px solid var(--border);
+            border-radius: 3px;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: border-color 0.15s, background 0.15s;
+          }
+
+          .checkbox-item input[type="radio"] {
+            border-radius: 50%;
+          }
+
+          .checkbox-item input[type="checkbox"]:checked,
+          .checkbox-item input[type="radio"]:checked {
+            background: var(--ghana-green);
+            border-color: var(--ghana-green);
+          }
+
+          .checkbox-item input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 3px; top: 0px;
+            width: 5px; height: 9px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+          }
+
+          .checkbox-item input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px; height: 6px;
+            background: #fff;
+            border-radius: 50%;
+          }
+
+          .section-sep {
+            border: none;
+            border-top: 1.5px dashed var(--border);
+            margin: 28px 0;
+          }
+
+          .sub-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+          }
+
+          .sub-fields .field label {
+            font-size: 0.63rem;
+            color: #9A8F7A;
+          }
+
+          .people-count-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+          }
+
+          .count-block {
+            background: var(--cream);
+            border: 1.5px solid var(--border);
+            border-radius: 2px;
+            padding: 12px 14px;
+          }
+
+          .count-block label {
+            font-size: 0.63rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 6px;
+          }
+
+          .count-block .checkbox-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .count-block input[type="number"] {
+            width: 70px;
+            border: 1.5px solid var(--border);
+            border-radius: 2px;
+            padding: 6px 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            background: #fff;
+            outline: none;
+          }
+
+          .other-state {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 12px;
+            align-items: end;
+          }
+
+          .submit-area {
+            padding: 28px;
+            background: var(--cream);
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+          }
+
+          .submit-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 480px;
+            line-height: 1.6;
+          }
+
+          .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--wa-green);
+            color: #fff;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 2px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+            text-decoration: none;
+          }
+
+          .btn-whatsapp:hover {
+            background: #1ebe5d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+          }
+
+          .btn-whatsapp:active {
+            transform: translateY(0);
+          }
+
+          .btn-whatsapp svg {
+            width: 22px; height: 22px;
+            fill: #fff;
+          }
+
+          .req { color: var(--ghana-red); margin-left: 2px; }
+
+          @media (max-width: 680px) {
+            .form-grid, .form-grid.cols-3 { grid-template-columns: 1fr; }
+            .field-full { grid-column: 1; }
+            .form-body { padding: 20px 16px; }
+            .form-hero h2 { font-size: 1.7rem; }
+            .sub-fields, .people-count-row, .other-state { grid-template-columns: 1fr; }
+          }
+        </style>
+    </head>
+<body>
+    <!-- Header Section Start -->
+    <header id="header">
+        <a href="index.html" class="logo"><img src="img/logoMM.png" alt="logo"></a>
+        <div class="phone"><i class="fa fa-phone"></i>+233 26 629 3526</div>
+        <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
+        <nav class="main-menu top-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="room.html">Apartments</a></li>
+                <li><a href="amenities.html">Amenities</a></li>
+                <li class="active"><a href="booking.html">Booking</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Search Section Start -->
+    <div id="search" style="background: #f2f2f2;">
+        <div class="container">
+            <div class="form-row">
+                <div class="control-group col-md-3">
+                    <label>Check-In</label>
+                    <div class="form-group">
+                        <div class="input-group date" id="date-3" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#date-3"/>
+                            <div class="input-group-append" data-target="#date-3" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group col-md-3">
+                    <label>Check-Out</label>
+                    <div class="form-group">
+                        <div class="input-group date" id="date-4" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#date-4"/>
+                            <div class="input-group-append" data-target="#date-4" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group col-md-3">
+                    <div class="form-row">
+                        <div class="control-group col-md-6">
+                            <label>Adult</label>
+                            <select class="custom-select">
+                                <option selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="control-group col-md-6">
+                            <label>Kid</label>
+                            <select class="custom-select">
+                                <option selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group col-md-3">
+                    <button class="btn btn-block">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Section End -->
+
+    <!-- Booking Section Start -->
+    <div id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Room Booking</h2>
+                <p>
+                    Base on the new structure for hospitality by Ghana Tourism Authority, we do appreciate if you can humbly filled the Booking Form. We appreciate every penny spent on Us.
+                </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="booking-form">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="bookingForm" novalidate="novalidate">
+
+  <div class="form-card">
+    <!-- ── SECTION A: PERSONAL INFO ── -->
+    <div class="section-header">
+      <div class="s-icon">A</div>
+      <h3>Personal Information</h3>
+    </div>
+    <div class="form-body">
+      <div class="form-grid">
+
+        <!-- 1. Surname -->
+        <div class="field">
+          <label><span class="num">1</span> Surname <span class="req">*</span></label>
+          <input type="text" id="surname" placeholder="Eg. Macintosh" required/>
+        </div>
+
+        <!-- 2. Other Names -->
+        <div class="field">
+          <label><span class="num">2</span> Other Names <span class="req">*</span></label>
+          <input type="text" id="otherNames" placeholder="Eg. John Nestor"/>
+        </div>
+
+        <!-- 3. Sex -->
+        <div class="field">
+          <label><span class="num">3</span> Sex <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="radio" name="sex" value="Male" required/> Male
+            </label>
+            <label class="checkbox-item">
+              <input type="radio" name="sex" value="Female"/> Female
+            </label>
+          </div>
+        </div>
+
+        <!-- 3b. GH Card -->
+        <div class="field">
+          <label><span class="num">3b</span> GH Card Number<span class="req">*</span></label>
+          <input type="text" id="ghCard" placeholder="GHA-XXXXXXXXX-X"/>
+        </div>
+
+        <!-- 4. Occupation -->
+        <div class="field">
+          <label><span class="num">4</span> Occupation <span class="req">*</span></label>
+          <input type="text" id="occupation" placeholder="Eg. Engineer"/>
+        </div>
+
+        <!-- 5. Date of Birth -->
+        <div class="field">
+          <label><span class="num">5</span> Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob"/>
+        </div>
+
+        <!-- 6. Place of Birth -->
+        <div class="field">
+          <label><span class="num">6</span> Place of Birth <span class="req">*</span></label>
+          <input type="text" id="pob" placeholder="Eg. Accra, Ghana"/>
+        </div>
+
+        <!-- 7. Passport -->
+        <div class="field field-full">
+          <label><span class="num">7</span> Passport Number <span class="req">*</span></label>
+          <input type="text" id="passportNo" placeholder="e.g. G1234567"/>
+          <div class="sub-fields">
+            <div class="field">
+              <label>Place of Issue</label>
+              <input type="text" id="passportPlace" placeholder="Eg. Accra, Ghana"/>
+            </div>
+            <div class="field">
+              <label>Date of Issue</label>
+              <input type="date" id="passportDate"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Nationality -->
+        <div class="field">
+          <label><span class="num">8</span> Nationality <span class="req">*</span></label>
+          <select id="nationality" required>
+            <option value="">-- Select Nationality --</option>
+            <option value="Afghan">Afghan</option>
+            <option value="Albanian">Albanian</option>
+            <option value="Algerian">Algerian</option>
+            <option value="American">American</option>
+            <option value="Andorran">Andorran</option>
+            <option value="Angolan">Angolan</option>
+            <option value="Antiguan">Antiguan</option>
+            <option value="Argentine">Argentine</option>
+            <option value="Armenian">Armenian</option>
+            <option value="Australian">Australian</option>
+            <option value="Austrian">Austrian</option>
+            <option value="Azerbaijani">Azerbaijani</option>
+            <option value="Bahamian">Bahamian</option>
+            <option value="Bahraini">Bahraini</option>
+            <option value="Bangladeshi">Bangladeshi</option>
+            <option value="Barbadian">Barbadian</option>
+            <option value="Belarusian">Belarusian</option>
+            <option value="Belgian">Belgian</option>
+            <option value="Belizean">Belizean</option>
+            <option value="Beninese">Beninese</option>
+            <option value="Bhutanese">Bhutanese</option>
+            <option value="Bolivian">Bolivian</option>
+            <option value="Bosnian">Bosnian</option>
+            <option value="Botswanan">Botswanan</option>
+            <option value="Brazilian">Brazilian</option>
+            <option value="British">British</option>
+            <option value="Bruneian">Bruneian</option>
+            <option value="Bulgarian">Bulgarian</option>
+            <option value="Burkinabé">Burkinabé</option>
+            <option value="Burmese">Burmese</option>
+            <option value="Burundian">Burundian</option>
+            <option value="Cambodian">Cambodian</option>
+            <option value="Cameroonian">Cameroonian</option>
+            <option value="Canadian">Canadian</option>
+            <option value="Cape Verdean">Cape Verdean</option>
+            <option value="Central African">Central African</option>
+            <option value="Chadian">Chadian</option>
+            <option value="Chilean">Chilean</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Colombian">Colombian</option>
+            <option value="Comorian">Comorian</option>
+            <option value="Congolese">Congolese</option>
+            <option value="Costa Rican">Costa Rican</option>
+            <option value="Croatian">Croatian</option>
+            <option value="Cuban">Cuban</option>
+            <option value="Cypriot">Cypriot</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Djiboutian">Djiboutian</option>
+            <option value="Dominican">Dominican</option>
+            <option value="Dutch">Dutch</option>
+            <option value="East Timorese">East Timorese</option>
+            <option value="Ecuadorian">Ecuadorian</option>
+            <option value="Egyptian">Egyptian</option>
+            <option value="Emirati">Emirati</option>
+            <option value="Equatorial Guinean">Equatorial Guinean</option>
+            <option value="Eritrean">Eritrean</option>
+            <option value="Estonian">Estonian</option>
+            <option value="Eswatini">Eswatini</option>
+            <option value="Ethiopian">Ethiopian</option>
+            <option value="Fijian">Fijian</option>
+            <option value="Finnish">Finnish</option>
+            <option value="French">French</option>
+            <option value="Gabonese">Gabonese</option>
+            <option value="Gambian">Gambian</option>
+            <option value="Georgian">Georgian</option>
+            <option value="German">German</option>
+            <option value="Ghanaian">Ghanaian</option>
+            <option value="Greek">Greek</option>
+            <option value="Grenadian">Grenadian</option>
+            <option value="Guatemalan">Guatemalan</option>
+            <option value="Guinean">Guinean</option>
+            <option value="Guinea-Bissauan">Guinea-Bissauan</option>
+            <option value="Guyanese">Guyanese</option>
+            <option value="Haitian">Haitian</option>
+            <option value="Honduran">Honduran</option>
+            <option value="Hong Kongese">Hong Kongese</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Icelander">Icelander</option>
+            <option value="Indian">Indian</option>
+            <option value="Indonesian">Indonesian</option>
+            <option value="Iranian">Iranian</option>
+            <option value="Iraqi">Iraqi</option>
+            <option value="Irish">Irish</option>
+            <option value="Israeli">Israeli</option>
+            <option value="Italian">Italian</option>
+            <option value="Ivorian">Ivorian</option>
+            <option value="Jamaican">Jamaican</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Jordanian">Jordanian</option>
+            <option value="Kazakhstani">Kazakhstani</option>
+            <option value="Kenyan">Kenyan</option>
+            <option value="Kittitian">Kittitian</option>
+            <option value="Kuwaiti">Kuwaiti</option>
+            <option value="Kyrgyzstani">Kyrgyzstani</option>
+            <option value="Laotian">Laotian</option>
+            <option value="Latvian">Latvian</option>
+            <option value="Lebanese">Lebanese</option>
+            <option value="Lesotho">Lesotho</option>
+            <option value="Liberian">Liberian</option>
+            <option value="Libyan">Libyan</option>
+            <option value="Liechtensteiner">Liechtensteiner</option>
+            <option value="Lithuanian">Lithuanian</option>
+            <option value="Luxembourgish">Luxembourgish</option>
+            <option value="Macanese">Macanese</option>
+            <option value="Macedonian">Macedonian</option>
+            <option value="Malagasy">Malagasy</option>
+            <option value="Malawian">Malawian</option>
+            <option value="Malaysian">Malaysian</option>
+            <option value="Maldivian">Maldivian</option>
+            <option value="Malian">Malian</option>
+            <option value="Maltese">Maltese</option>
+            <option value="Manx">Manx</option>
+            <option value="Marshallese">Marshallese</option>
+            <option value="Martiniquais">Martiniquais</option>
+            <option value="Mauritanian">Mauritanian</option>
+            <option value="Mauritian">Mauritian</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Micronesian">Micronesian</option>
+            <option value="Moldovan">Moldovan</option>
+            <option value="Monegasque">Monegasque</option>
+            <option value="Mongolian">Mongolian</option>
+            <option value="Montenegrin">Montenegrin</option>
+            <option value="Moroccan">Moroccan</option>
+            <option value="Mozambican">Mozambican</option>
+            <option value="Namibian">Namibian</option>
+            <option value="Nauruan">Nauruan</option>
+            <option value="Nepalese">Nepalese</option>
+            <option value="New Zealander">New Zealander</option>
+            <option value="Nicaraguan">Nicaraguan</option>
+            <option value="Nigerian">Nigerian</option>
+            <option value="Nigerien">Nigerien</option>
+            <option value="North Korean">North Korean</option>
+            <option value="Northern Irish">Northern Irish</option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Omani">Omani</option>
+            <option value="Pakistani">Pakistani</option>
+            <option value="Palauan">Palauan</option>
+            <option value="Palestinian">Palestinian</option>
+            <option value="Panamanian">Panamanian</option>
+            <option value="Papua New Guinean">Papua New Guinean</option>
+            <option value="Paraguayan">Paraguayan</option>
+            <option value="Peruvian">Peruvian</option>
+            <option value="Philippine">Philippine</option>
+            <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Puerto Rican">Puerto Rican</option>
+            <option value="Qatari">Qatari</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Russian">Russian</option>
+            <option value="Rwandan">Rwandan</option>
+            <option value="Saint Lucian">Saint Lucian</option>
+            <option value="Salvadoran">Salvadoran</option>
+            <option value="Samoan">Samoan</option>
+            <option value="San Marinese">San Marinese</option>
+            <option value="Sao Tomean">Sao Tomean</option>
+            <option value="Saudi Arabian">Saudi Arabian</option>
+            <option value="Scottish">Scottish</option>
+            <option value="Senegalese">Senegalese</option>
+            <option value="Serbian">Serbian</option>
+            <option value="Seychellois">Seychellois</option>
+            <option value="Sierra Leonean">Sierra Leonean</option>
+            <option value="Singaporean">Singaporean</option>
+            <option value="Slovak">Slovak</option>
+            <option value="Slovenian">Slovenian</option>
+            <option value="Solomon Islander">Solomon Islander</option>
+            <option value="Somali">Somali</option>
+            <option value="South African">South African</option>
+            <option value="South Korean">South Korean</option>
+            <option value="South Sudanese">South Sudanese</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Sri Lankan">Sri Lankan</option>
+            <option value="Sudanese">Sudanese</option>
+            <option value="Surinamese">Surinamese</option>
+            <option value="Swedish">Swedish</option>
+            <option value="Swiss">Swiss</option>
+            <option value="Syrian">Syrian</option>
+            <option value="Taiwanese">Taiwanese</option>
+            <option value="Tajikistani">Tajikistani</option>
+            <option value="Tanzanian">Tanzanian</option>
+            <option value="Thai">Thai</option>
+            <option value="Togolese">Togolese</option>
+            <option value="Trinidadian">Trinidadian</option>
+            <option value="Tunisian">Tunisian</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Turkmenistani">Turkmenistani</option>
+            <option value="Turks and Caicos Islander">Turks and Caicos Islander</option>
+            <option value="Tuvaluan">Tuvaluan</option>
+            <option value="Ugandan">Ugandan</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Uruguayan">Uruguayan</option>
+            <option value="Uzbekistani">Uzbekistani</option>
+            <option value="Vanuatuan">Vanuatuan</option>
+            <option value="Venezuelan">Venezuelan</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Virgin Islander">Virgin Islander</option>
+            <option value="Welsh">Welsh</option>
+            <option value="Yemeni">Yemeni</option>
+            <option value="Zambian">Zambian</option>
+            <option value="Zimbabwean">Zimbabwean</option>
+          </select>
+        </div>
+
+        <!-- 9. Country of Residence -->
+        <div class="field">
+          <label><span class="num">9</span> Country of Residence <span class="req">*</span></label>
+          <input type="text" id="countryResidence" placeholder="Eg. Ghana"/>
+        </div>
+
+      </div><!-- /form-grid -->
+    </div><!-- /form-body -->
+
+    <!-- ── SECTION B: TRAVEL INFO ── -->
+    <div class="section-header">
+      <div class="s-icon">B</div>
+      <h3>Travel Details</h3>
+    </div>
+    <div class="form-body">
+      <div class="form-grid">
+
+        <!-- 10. Number of people -->
+        <div class="field field-full">
+          <label><span class="num">10</span> Number of People Travelling With You</label>
+          <div class="people-count-row">
+            <div class="count-block">
+              <label>☑ Above 18 years</label>
+              <div class="checkbox-inline">
+                <input type="number" id="above18" min="0" value="0" placeholder="0"/>
+                <span style="font-size:0.8rem;color:var(--text-muted)">persons</span>
+              </div>
+            </div>
+            <div class="count-block">
+              <label>☑ Below 18 years</label>
+              <div class="checkbox-inline">
+                <input type="number" id="below18" min="0" value="0" placeholder="0"/>
+                <span style="font-size:0.8rem;color:var(--text-muted)">persons</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Address in Country of Residence -->
+        <div class="field field-full">
+          <label><span class="num">11</span> Address in Country of Residence <span class="req">*</span></label>
+          <textarea id="residenceAddress" placeholder="Eg. 123 Main Street, Accra, Ghana"></textarea>
+        </div>
+
+        <!-- 12. Arrived in Ghana -->
+        <div class="field">
+          <label><span class="num">12</span> Arrived in Ghana</label>
+          <input type="date" id="arrivedGhana"/>
+        </div>
+
+        <!-- 13. Next Destination from Ghana -->
+        <div class="field">
+          <label><span class="num">13</span> Next Destination from Ghana</label>
+          <input type="text" id="nextDestination" placeholder="Eg. Korea"/>
+        </div>
+
+        <!-- 14. Bill Settlement -->
+        <div class="field field-full">
+          <label><span class="num">14</span> How Do You Want to Settle Your Bill? <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="bill" value="Cash"/> Cash</label>
+            <label class="checkbox-item"><input type="radio" name="bill" value="Credit Card"/> Credit Card</label>
+            <label class="checkbox-item"><input type="radio" name="bill" value="Company Account"/> Company Account</label>
+            <label class="checkbox-item"><input type="radio" name="bill" value="Agent Voucher Basis"/> Agent Voucher Basis</label>
+          </div>
+        </div>
+
+        <!-- 15. Purpose of Visit -->
+        <div class="field field-full">
+          <label><span class="num">15</span> Purpose of Visit <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Transit"/> Transit</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Religion (Pilgrimage)"/> Religion (Pilgrimage)</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Business"/> Business</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Conference"/> Conference</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Official"/> Official</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Visiting Friends & Relatives"/> Visiting Friends &amp; Relatives</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Education & Training"/> Education &amp; Training</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Health"/> Health</label>
+            <label class="checkbox-item"><input type="checkbox" name="purpose" value="Sports"/> Sports</label>
+            <label class="checkbox-item"><input type="checkbox" id="purposeOther" name="purpose" value="Other"/> Other</label>
+          </div>
+          <div class="other-state" id="otherStateRow" style="display:none;">
+            <div class="field">
+              <label>Other</label>
+              <input type="text" id="otherPurpose" placeholder="Specify"/>
+            </div>
+            <div class="field">
+              <label>State</label>
+              <input type="text" id="otherState" placeholder="Eg. Tourism"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. Company/Agent Name & Address -->
+        <div class="field field-full">
+          <label><span class="num">16</span> Company / Agent Name &amp; Address</label>
+          <textarea id="companyAgent" placeholder="Eg. ABC Travel Agency, 123 Main Street, Accra, Ghana"></textarea>
+        </div>
+
+        <!-- 17. Mode of Travel -->
+        <div class="field field-full">
+          <label><span class="num">17</span> Mode of Travel <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="travel" value="Air"/> ✈ Air</label>
+            <label class="checkbox-item"><input type="radio" name="travel" value="Road (Car)"/> 🚗 Road (Car)</label>
+            <label class="checkbox-item"><input type="radio" name="travel" value="Ship (Boat)"/> ⛵ Ship (Boat)</label>
+            <label class="checkbox-item"><input type="radio" name="travel" value="Rail"/> 🚂 Rail</label>
+          </div>
+        </div>
+
+        <!-- 18. Date of Arrival -->
+        <div class="field">
+          <label><span class="num">18</span> Date of Arrival <span class="req">*</span></label>
+          <input type="date" id="dateArrival"/>
+        </div>
+
+        <!-- 19. Date of Departure -->
+        <div class="field">
+          <label><span class="num">19</span> Date of Departure</label>
+          <input type="date" id="dateDeparture"/>
+        </div>
+
+      </div><!-- /form-grid -->
+    </div><!-- /form-body -->
+
+    <!-- ── SECTION C: EMERGENCY CONTACT ── -->
+    <div class="section-header">
+      <div class="s-icon">C</div>
+      <h3>Emergency Contact</h3>
+    </div>
+    <div class="form-body">
+      <div class="form-grid">
+
+        <!-- 20. Contact of Closest Relative -->
+        <div class="field">
+          <label><span class="num">20</span> Contact of Closest Relative <span class="req">*</span></label>
+          <input type="tel" id="relativeContact" placeholder="+233 XX XXX XXXX"/>
+        </div>
+
+        <!-- 21. Relationship -->
+        <div class="field">
+          <label><span class="num">21</span> Relationship <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="relationship" value="Spouse"/> Spouse</label>
+            <label class="checkbox-item"><input type="radio" name="relationship" value="Family Member"/> Family Member</label>
+            <label class="checkbox-item"><input type="radio" name="relationship" value="Friend"/> Friend</label>
+          </div>
+        </div>
+
+        <!-- 22. Contact -->
+        <div class="field field-full">
+          <label><span class="num">22</span> Additional Contact</label>
+          <input type="tel" id="additionalContact" placeholder="Alternative phone or email"/>
+        </div>
+
+      </div><!-- /form-grid -->
+    </div><!-- /form-body -->
+
+    <!-- ── SUBMIT ── -->
+    <div class="submit-area">
+      <p class="submit-note">
+        By submitting, you confirm all information provided is true and accurate.
+        Your completed form will be sent securely via WhatsApp to PHOCOS GUESS INN for processing.
+      </p>
+      <button class="btn-whatsapp" onclick="sendViaWhatsApp()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Send via WhatsApp
+      </button>
+    </div>
+  </div><!-- /form-card -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking Section End -->
+
+    <!-- Footer Section Start -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="social">
+                        <a href=""><li class="fa fa-instagram"></li></a>
+                        <a href=""><li class="fa fa-twitter"></li></a>
+                        <a href=""><li class="fa fa-facebook-f"></li></a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Terms</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <p>Copyright &#169; <a href="tel: +233 26 629 3526">PHOCOS GUESS INN</a> All Rights Reserved.</p>
+					<p>Developed By <a href="tel: +233 26 629 3526">Tambo Forster</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section End -->
+
+</div><!-- /page-wrapper -->
+
+<script>
+  // Toggle "Other / State" row when Other is checked
+  document.getElementById('purposeOther').addEventListener('change', function(){
+    document.getElementById('otherStateRow').style.display = this.checked ? 'grid' : 'none';
+  });
+
+  // Format GH Card Number input: GHA-XXXXXXXXX-X
+  document.getElementById('ghCard').addEventListener('input', function(e) {
+    let val = e.target.value.replace(/\D/g, ''); // Remove all non-digits
+    if (val.length > 10) val = val.slice(0, 10); // Max 10 digits
+    
+    if (val.length === 0) {
+      e.target.value = '';
+    } else if (val.length <= 9) {
+      e.target.value = 'GHA-' + val;
+    } else {
+      // 10 digits: GHA-XXXXXXXXX-X
+      e.target.value = 'GHA-' + val.slice(0, 9) + '-' + val.slice(9);
+    }
+  });
+
+  // Collect form data and send via WhatsApp
+  function sendViaWhatsApp() {
+    const get = id => (document.getElementById(id)?.value || '').trim();
+    const radio = name => {
+      const el = document.querySelector(`input[name="${name}"]:checked`);
+      return el ? el.value : 'Not selected';
+    };
+    const checks = name => {
+      const els = document.querySelectorAll(`input[name="${name}"]:checked`);
+      return els.length ? Array.from(els).map(e => e.value).join(', ') : 'None';
+    };
+
+    // Basic validation
+    const required = [
+      ['surname','Surname'], ['otherNames','Other Names'],
+      ['occupation','Occupation'], ['dob','Date of Birth'],
+      ['pob','Place of Birth'], ['passportNo','Passport Number'],
+      ['nationality','Nationality'], ['countryResidence','Country of Residence'],
+      ['residenceAddress','Address in Country of Residence'],
+      ['dateArrival','Date of Arrival'], ['relativeContact','Closest Relative Contact']
+    ];
+    for (const [id, label] of required) {
+      if (!get(id)) { alert(`⚠ Please fill in: ${label}`); return; }
+    }
+    if (radio('sex') === 'Not selected') { alert('⚠ Please select your Sex'); return; }
+
+    const otherPurpose = document.getElementById('purposeOther').checked
+      ? ` [Other: ${get('otherPurpose')} | State: ${get('otherState')}]` : '';
+
+    const msg = [
+      '🇬🇭 *PHOCOS GUESS INN*',
+      '*REGISTRATION FORM*',
+      '━━━━━━━━━━━━━━━━━━━━━━',
+      '',
+      '📋 *PERSONAL INFORMATION*',
+      `1. Surname: ${get('surname')}`,
+      `2. Other Names: ${get('otherNames')}`,
+      `3. Sex: ${radio('sex')}`,
+      `3b. GH Card: ${get('ghCard') || 'Not provided'}`,
+      `4. Occupation: ${get('occupation')}`,
+      `5. Date of Birth: ${get('dob')}`,
+      `6. Place of Birth: ${get('pob')}`,
+      `7. Passport No: ${get('passportNo')}`,
+      `   Place of Issue: ${get('passportPlace')}`,
+      `   Date of Issue: ${get('passportDate')}`,
+      `8. Nationality: ${get('nationality')}`,
+      `9. Country of Residence: ${get('countryResidence')}`,
+      '',
+      '✈️ *TRAVEL DETAILS*',
+      `10. Travelling With — Above 18: ${get('above18')} | Below 18: ${get('below18')}`,
+      `11. Residence Address: ${get('residenceAddress')}`,
+      `12. Arrived in Ghana: ${get('arrivedGhana')}`,
+      `13. Next Destination: ${get('nextDestination')}`,
+      `14. Bill Settlement: ${radio('bill')}`,
+      `15. Purpose of Visit: ${checks('purpose')}${otherPurpose}`,
+      `16. Company/Agent: ${get('companyAgent')}`,
+      `17. Mode of Travel: ${radio('travel')}`,
+      `18. Date of Arrival: ${get('dateArrival')}`,
+      `19. Date of Departure: ${get('dateDeparture')}`,
+      '',
+      '📞 *EMERGENCY CONTACT*',
+      `20. Closest Relative Contact: ${get('relativeContact')}`,
+      `21. Relationship: ${radio('relationship')}`,
+      `22. Additional Contact: ${get('additionalContact')}`,
+      '',
+      '━━━━━━━━━━━━━━━━━━━━━━',
+      `Ref: PGI/GTA/ARR/0422a66296`,
+      `Submitted: ${new Date().toLocaleString('en-GB')}`
+    ].join('\n');
+
+    const encoded = encodeURIComponent(msg);
+    const waNumber = '233266293526'; 
+const waURL = `https://wa.me/${waNumber}?text=${encoded}`;
+    window.open(waURL, '_blank');
+  }
+</script>
+</body>
+</html>
